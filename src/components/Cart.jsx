@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ClearIcon from '@mui/icons-material/Clear';
+import { ShopContext } from '../App';
 
-const Cart = ({ cart, setCart }) => {
+const Cart = () => {
+    const { cart, setCart } = useContext(ShopContext)
     const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
     const decreaseQuantity = (productId) => {
@@ -90,7 +92,7 @@ const Cart = ({ cart, setCart }) => {
                     <p className="font-semibold">Total Items: {cart.length} </p>
                     <div>
                         <h1 className='font-semibold text-2xl'>Total Price</h1>
-                        <p className="font-semibold">{totalPrice}</p>
+                        <p className="font-semibold">${totalPrice}</p>
                     </div>
                 </div>
 
