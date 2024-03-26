@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
+import { ShopContext } from '../App';
 
 
-const Navbar = ({ cart }) => {
+const Navbar = () => {
+    const { cart } = useContext(ShopContext)
     return (
         <div className='bg-blue-900'>
             <nav className='container mx-auto text-white w-full flex justify-between py-5 '>
